@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
-    <link rel="shortcut icon" href="./assets/hero-leaf1.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/hero-leaf1.png"
+      type="image/x-icon"
+    />
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -32,10 +36,14 @@
   <body>
     <!-- note: Headr Part -->
     <header class="">
-      <div class="md:flex justify-around items-center text-center space-y-4 py-7 bg-[#15803D]">
+      <div
+        class="md:flex justify-around items-center text-center space-y-4 py-7 bg-[#15803D]"
+      >
         <h1 class="text-white font-bold text-xl">Green Earth</h1>
         <div>
-          <ul class="flex justify-center gap-3 text-white font-semiboldbold text-base ">
+          <ul
+            class="flex justify-center gap-3 text-white font-semiboldbold text-base"
+          >
             <li class="cursor-pointer">About</li>
             <li class="cursor-pointer">Gallery</li>
             <li class="cursor-pointer">Plant a Tree</li>
@@ -49,24 +57,152 @@
     <!-- main -->
     <main>
       <!--! banner -->
-      <div class="banner-con md:flex justify-around items-center bg-[#CFF0DC] pt-5 md:pt-10">
+      <div
+        class="banner-con md:flex justify-around items-center bg-[#CFF0DC] pt-5 md:pt-10"
+      >
         <div>
           <img class="hidden md:block" src="./assets/hero-leaf1.png" alt="" />
         </div>
         <div class="text-center space-y-4 md:space-y-6">
-            <h1 class="font-bold text-3xl md:text-5xl ">Plant a Tree, Grow a Future</h1>
-            <p class="md:text-lg ">Join our mission to plant 1 million trees and make the Earth greener for future <br> generations.</p>
-            <button class="btn btn-warning text-lg text-[#15803D] rounded-[30px]">
-          Plant a Tree
-        </button>
+          <h1 class="font-bold text-3xl md:text-5xl">
+            Plant a Tree, Grow a Future
+          </h1>
+          <p class="md:text-lg">
+            Join our mission to plant 1 million trees and make the Earth greener
+            for future <br />
+            generations.
+          </p>
+          <button class="btn btn-warning text-lg text-[#15803D] rounded-[30px]">
+            Plant a Tree
+          </button>
         </div>
         <div>
           <img src="./assets/hero-leaf2.png" alt="" />
         </div>
       </div>
+      <!--! color div -->
+      <div class="bg-[#F0FDF4]">
+        <!--! js Part start -->
+        <!--! js Part end -->
+
+        <!--! about part -->
+        <section class="about-sec py-15">
+          <h1 class="text-center text-4xl font-semibold mb-10">
+            About the Campaign
+          </h1>
+          <div
+            class="flex flex-col-reverse md:flex-row gap-5 justify-around items-center px-6 md:w-7/12 mx-auto"
+          >
+            <figure class="w-full">
+              <img class="rounded-lg" src="./assets/about.png" alt="" />
+            </figure>
+            <div class="text-[#1f2937]">
+              <p class="text-lg mt-3">
+                Green Earth is a global tree plantation initiative dedicated to
+                fighting climate change. Since our start, we’ve planted over
+                500,000 trees <br />
+                worldwide. By joining our campaign, you help restore forests,
+                create habitats for wildlife, and combat global warming
+              </p>
+              <ul>
+                <li class="list-disc ml-6 text-lg">
+                  Restoration of natural habitats
+                </li>
+                <li class="list-disc ml-6 text-lg">
+                  Improvement of air quality
+                </li>
+                <li class="list-disc ml-6 text-lg">
+                  Support for local communities
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!--! color div end -->
+
+
+      <!-- impact part -->
+      <section class="bg-[#CFF0DC] pb-20">
+        <h1 class="text-center text-4xl font-semibold pt-24 pb-10">
+          Our Impact
+        </h1>
+
+        <div
+          class="grid grid-cols-3 justify-around items-center gap-10 w-11/12 mx-auto"
+        >
+          <div
+            class="bg-white text-center py-10 rounded-lg hover:bg-[#f2fdf6] hover:scale-105 transition-all duration-300 ease-in-out"
+          >
+            <h2 class="font-semibold text-xl mb-3 text-[#15803D]">500K+</h2>
+            <p>Trees Planted</p>
+          </div>
+          <div
+            class="bg-white text-center py-10 rounded-lg hover:bg-[#f2fdf6] hover:scale-105 transition-all duration-300 ease-in-out"
+          >
+            <h2 class="font-semibold text-xl mb-3 text-[#15803D]">120K+</h2>
+            <p>Communities Involved</p>
+          </div>
+          <div
+            class="bg-white text-center py-10 rounded-lg hover:bg-[#f2fdf6] hover:scale-105 transition-all duration-300 ease-in-out"
+          >
+            <h2 class="font-semibold text-xl mb-3 text-[#15803D]">30+</h2>
+            <p>Countries Reached</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- form part -->
+      <section class="bg-[#166534] pb-24">
+        <h1 class="text-center text-4xl font-semibold pt-24 pb-10 text-white">
+          Our Impact
+        </h1>
+        <div class="hero">
+          <div class="card bg-[#15803D] w-full max-w-sm shadow-2xl">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label"></label>
+                <input type="text" class="input" placeholder="Your Name" />
+                <label class="label"></label>
+                <input
+                  type="email"
+                  class="input"
+                  placeholder="Your Email Address"
+                />
+                <label class="label"></label>
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="Number of Trees"
+                  list="browsers"
+                />
+                <datalist id="browsers">
+                  <option value="fol"></option>
+                  <option value="ful"></option>
+                  <option value="kat"></option>
+                </datalist>
+
+                <button class="btn btn-warning rounded-3xl mt-4 px-[-4px] text-[#15803D]">
+                  Donate Now
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- !footer -->
+    <section>
+      <footer
+        class="footer sm:footer-horizontal footer-center bg-[#14532D] text-base-content p-4"
+      >
+        <aside>
+          <p class="text-white">2025 Green Earth. All Rights Reserved.</p>
+        </aside>
+      </footer>
+    </section>
     <!-- js -->
     <script src="./js/script.js"></script>
   </body>
 </html>
-

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BBC News</title>
-    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon" />
+    <title>Green Earth</title>
+    <link rel="shortcut icon" href="./assets/hero-leaf1.png" type="image/x-icon" />
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -30,20 +30,43 @@
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-<!-- note: Headr Part -->
-<header>
-    
-</header>
-
-
-
-
-
-
-
-
-
+    <!-- note: Headr Part -->
+    <header class="">
+      <div class="md:flex justify-around items-center text-center space-y-4 py-7 bg-[#15803D]">
+        <h1 class="text-white font-bold text-xl">Green Earth</h1>
+        <div>
+          <ul class="flex justify-center gap-3 text-white font-semiboldbold text-base ">
+            <li class="cursor-pointer">About</li>
+            <li class="cursor-pointer">Gallery</li>
+            <li class="cursor-pointer">Plant a Tree</li>
+          </ul>
+        </div>
+        <button class="btn btn-warning text-lg text-[#15803D] rounded-[30px]">
+          Plant a Tree
+        </button>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <!--! banner -->
+      <div class="banner-con md:flex justify-around items-center bg-[#CFF0DC] pt-5 md:pt-10">
+        <div>
+          <img class="hidden md:block" src="./assets/hero-leaf1.png" alt="" />
+        </div>
+        <div class="text-center space-y-4 md:space-y-6">
+            <h1 class="font-bold text-3xl md:text-5xl ">Plant a Tree, Grow a Future</h1>
+            <p class="md:text-lg ">Join our mission to plant 1 million trees and make the Earth greener for future <br> generations.</p>
+            <button class="btn btn-warning text-lg text-[#15803D] rounded-[30px]">
+          Plant a Tree
+        </button>
+        </div>
+        <div>
+          <img src="./assets/hero-leaf2.png" alt="" />
+        </div>
+      </div>
+    </main>
     <!-- js -->
     <script src="./js/script.js"></script>
   </body>
 </html>
+

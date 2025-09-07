@@ -29,7 +29,27 @@ const lodePlantsCategories = () => {
 const showTreeCategories = (categories) => {
   const allCategoriesCon = document.getElementById("all-categories-con");
   allCategoriesCon.innerHTML = "";
+  // *----------"All trees"---------"
+const allTreesWrapper = document.createElement("span");
+allTreesWrapper.innerHTML = `
+  <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer">
+    All Trees
+  </li>
+`;
 
+const allTreesLi = allTreesWrapper.querySelector("li");
+allTreesLi.addEventListener("click", () => {
+  document.querySelectorAll("#all-categories-con li").forEach((li) =>
+    li.classList.remove("bg-[#15803D]", "text-white")
+  );
+  allTreesLi.classList.add("bg-[#15803D]", "text-white");
+
+  lodePlantsCategories(); 
+});
+
+allCategoriesCon.append(allTreesWrapper);
+
+// !-------------"All trees"----------------------
   categories.forEach((category) => {
     const categoryLi = document.createElement("span");
     categoryLi.innerHTML = `
@@ -37,22 +57,19 @@ const showTreeCategories = (categories) => {
     ${category.category_name}
   </li>
 `;
-
     const liElement = categoryLi.querySelector("li");
     liElement.addEventListener("click", () => {
       document
         .querySelectorAll("li")
         .forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
       liElement.classList.add("bg-[#15803D]", "text-white");
-
       PlantsbyCategories(category.id);
     });
-
     allCategoriesCon.append(categoryLi);
   });
 };
 
-// -------------------------------------
+// *--------------showPlantsCategories-----------------------
 const showPlantsCategories = (plants) => {
   const allPlantCon = document.getElementById("all-plant-con");
   plants.forEach((plant) => {

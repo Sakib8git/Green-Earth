@@ -56,7 +56,8 @@
     </header>
     <!-- main -->
     <main>
-      <!--! banner -->
+      <!--* banner -->
+
       <div
         class="banner-con md:flex justify-around items-center bg-[#CFF0DC] pt-5 md:pt-10"
       >
@@ -80,12 +81,91 @@
           <img src="./assets/hero-leaf2.png" alt="" />
         </div>
       </div>
-      <!--! color div -->
-      <div class="bg-[#F0FDF4]">
-        <!--! js Part start -->
-        <!--! js Part end -->
+      <!--! banner -->
 
-        <!--! about part -->
+      <!--note: "color div" -->
+      <div class="bg-[#F0FDF4]">
+        <!--* api choose tree part start -->
+
+        <section class="choose-tree-sec md:w-11/12 mx-auto">
+          <h1 class="text-center text-4xl font-semibold mb-10 pt-10">
+            Choose Your Trees
+          </h1>
+          <div
+            class="choose-tree-con md:grid md:grid-cols-12 border h-auto gap-7"
+          >
+            <!-- *note:choose tree body -->
+            <div id=""
+              class="category-part md:col-span-2 border border-red-500 space-y-4"
+            >
+              <h2 class="font-semibold text-xl">Categories</h2>
+              
+              <!-- *categories body -->
+              <ul id="all-categories-con" class=" ">
+                <!-- <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  Fruit Trees
+                </li> -->
+                <!-- <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  All Trees
+                </li>
+                <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  Flowering Trees
+                </li>
+                <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  Flowering Trees
+                </li>
+                <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  Flowering Trees
+                </li>
+                <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white">
+                  Flowering Trees
+                </li> -->
+              </ul>
+            <!-- !categories body -->
+            
+            
+            
+            </div>
+
+            <!-- *note:card con  -->
+            <div
+              class="all-plant-card-con md:col-span-8 border border-green-500 grid md:grid-cols-3 gap-7"
+            >
+              <!-- "card-1" -->
+              <div class="card bg-white rounded-lg p-4 shadow-md w-full h-auto">
+                <img
+                  class="bg-[#EDEDED] rounded-lg"
+                  src="./assets/hero-leaf1.png"
+                  alt=""
+                />
+                <div class="space-y-3">
+                  <h2 class="font-semibold text-lg mt-3">Mango Tree</h2>
+                  <p>
+                    A fast-growing tropical tree that produces delicious, juicy
+                    mangoes during summer. Its dense green
+                  </p>
+                  <div class="flex justify-between items-center">
+                    <button class="btn btn-soft btn-success">Fruit Tree</button>
+                    <p class="font-semibold">৳500</p>
+                  </div>
+                </div>
+                <button class="btn bg-[#15803D] rounded-3xl mt-4 text-white">
+                  Add to Cart
+                </button>
+              </div>
+              <!--! "card-1" -->
+            </div>
+            <!-- !card con end  -->
+
+            <!-- *cart -->
+            <div class="cart-con col-span-2 border border-blue-500"></div>
+            <!-- !cart end -->
+          </div>
+        </section>
+
+        <!--! api choose tree part end -->
+
+        <!--* about part -->
         <section class="about-sec py-15">
           <h1 class="text-center text-4xl font-semibold mb-10">
             About the Campaign
@@ -121,8 +201,7 @@
       </div>
       <!--! color div end -->
 
-
-      <!-- impact part -->
+      <!--* impact part -->
       <section class="bg-[#CFF0DC] pb-20">
         <h1 class="text-center text-4xl font-semibold pt-24 pb-10">
           Our Impact
@@ -152,7 +231,7 @@
         </div>
       </section>
 
-      <!-- form part -->
+      <!--* form part -->
       <section class="bg-[#166534] pb-24">
         <h1 class="text-center text-4xl font-semibold pt-24 pb-10 text-white">
           Our Impact
@@ -182,7 +261,9 @@
                   <option value="kat"></option>
                 </datalist>
 
-                <button class="btn btn-warning rounded-3xl mt-4 px-[-4px] text-[#15803D]">
+                <button
+                  class="btn btn-warning rounded-3xl mt-4 px-[-4px] text-[#15803D]"
+                >
                   Donate Now
                 </button>
               </fieldset>
@@ -192,8 +273,8 @@
       </section>
     </main>
 
-    <!-- !footer -->
-    <section>
+    <!-- *footer -->
+    <section class="">
       <footer
         class="footer sm:footer-horizontal footer-center bg-[#14532D] text-base-content p-4"
       >

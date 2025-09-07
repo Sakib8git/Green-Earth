@@ -1,3 +1,5 @@
+// !-------------1side er category lode kori
+
 const lodeTreeCategories = () => {
   const categoriesUrl = "https://openapi.programming-hero.com/api/categories";
   fetch(categoriesUrl)
@@ -15,30 +17,40 @@ const lodePlantsCategories = () => {
     .then((res) => res.json())
     .then((data) => {
       const plantdataCategoies = data.plants;
+      // console.log(data);
       showPlantsCategories(plantdataCategoies);
-      //   console.log(plantdataCategoies);
     })
     .catch((err) => {});
 };
+
 // !___________________show case________________________
+
+// !-------------1side er category show kori
 const showTreeCategories = (categories) => {
   const allCategoriesCon = document.getElementById("all-categories-con");
+  allCategoriesCon.innerHTML = "";
+
   categories.forEach((category) => {
-    // console.log(category);
-    const categoryLi = document.createElement("div");
-    categoryLi.innerHTML = `
-    <li id="${category.id}" class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white transition-all duration-150 ease-in-out cursor-pointer">
-                  ${category.category_name}
-                </li>
-    `;
+    const categoryLi = document.createElement("li");
+    categoryLi.id = category.id;
+    categoryLi.className =
+      "p-2 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer";
+    categoryLi.innerText = category.category_name;
+
+    categoryLi.addEventListener("click", () => {
+      console.log("Clicked:", category.id);
+      PlantsbyCategories(category.id); // ✅ filter on click
+    });
+
     allCategoriesCon.append(categoryLi);
   });
 };
+
 // -------------------------------------
 const showPlantsCategories = (plants) => {
   const allPlantCon = document.getElementById("all-plant-con");
   plants.forEach((plant) => {
-    console.log(plant.image);
+    // console.log(plant.image);
     const categoryLi = document.createElement("div");
     categoryLi.innerHTML = `
     <div class="card bg-white rounded-lg p-4 shadow-md w-full h-[500px] flex flex-col justify-between">
@@ -66,6 +78,26 @@ const showPlantsCategories = (plants) => {
     `;
     allPlantCon.append(categoryLi);
   });
+};
+
+// ----------------------------
+
+// -----------------🌴plants by categories-----------------------
+const PlantsbyCategories = (id) => {
+  const allPlantCon = document.getElementById("all-plant-con");
+  allPlantCon.innerHTML = "";
+  const plantBycategoriesUrl = `https://openapi.programming-hero.com/api/category/${id}`;
+  console.log("Fetching from:", plantBycategoriesUrl);
+
+  fetch(plantBycategoriesUrl)
+    .then((res) => res.json())
+    .then((data) => {
+  console.log("API response:", data);
+  const filteredPlants = data.plants;
+  console.log("Filtered plants:", filteredPlants);
+  showPlantsCategories(filteredPlants);
+})
+    .catch((err) => {});
 };
 
 lodePlantsCategories();

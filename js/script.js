@@ -31,19 +31,22 @@ const showTreeCategories = (categories) => {
   allCategoriesCon.innerHTML = "";
 
   categories.forEach((category) => {
-    const categoryLi = document.createElement("li");
-    categoryLi.id = category.id;
-    categoryLi.className =
-      "p-2 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer";
-    categoryLi.innerText = category.category_name;
-    // !-----"caregory clicked"-----------------
-    categoryLi.addEventListener("click", () => {
-     const selectClicked =document.querySelectorAll("li")
-        selectClicked.forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
-      categoryLi.classList.add("bg-[#15803D]", "text-white");
+    const categoryLi = document.createElement("span");
+    categoryLi.innerHTML = `
+  <li id="${category.id}" class="p-3 mb-1 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer">
+    ${category.category_name}
+  </li>
+`;
+
+    const liElement = categoryLi.querySelector("li");
+    liElement.addEventListener("click", () => {
+      document
+        .querySelectorAll("li")
+        .forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
+      liElement.classList.add("bg-[#15803D]", "text-white");
+
       PlantsbyCategories(category.id);
     });
-    // !-------"caregory clicked"-----------------
 
     allCategoriesCon.append(categoryLi);
   });

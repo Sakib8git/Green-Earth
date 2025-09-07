@@ -36,11 +36,14 @@ const showTreeCategories = (categories) => {
     categoryLi.className =
       "p-2 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer";
     categoryLi.innerText = category.category_name;
-
+    // !-----"caregory clicked"-----------------
     categoryLi.addEventListener("click", () => {
-      console.log("Clicked:", category.id);
-      PlantsbyCategories(category.id); // ✅ filter on click
+     const selectClicked =document.querySelectorAll("li")
+        selectClicked.forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
+      categoryLi.classList.add("bg-[#15803D]", "text-white");
+      PlantsbyCategories(category.id);
     });
+    // !-------"caregory clicked"-----------------
 
     allCategoriesCon.append(categoryLi);
   });
@@ -87,16 +90,12 @@ const PlantsbyCategories = (id) => {
   const allPlantCon = document.getElementById("all-plant-con");
   allPlantCon.innerHTML = "";
   const plantBycategoriesUrl = `https://openapi.programming-hero.com/api/category/${id}`;
-  console.log("Fetching from:", plantBycategoriesUrl);
-
   fetch(plantBycategoriesUrl)
     .then((res) => res.json())
     .then((data) => {
-  console.log("API response:", data);
-  const filteredPlants = data.plants;
-  console.log("Filtered plants:", filteredPlants);
-  showPlantsCategories(filteredPlants);
-})
+      const filteredPlants = data.plants;
+      showPlantsCategories(filteredPlants);
+    })
     .catch((err) => {});
 };
 

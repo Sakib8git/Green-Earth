@@ -29,14 +29,14 @@ const lodePlantsCategories = () => {
 const showTreeCategories = (categories) => {
   const allCategoriesCon = document.getElementById("all-categories-con");
   allCategoriesCon.innerHTML = "";
+
   // *----------"All trees"---------"
 const allTreesWrapper = document.createElement("span");
 allTreesWrapper.innerHTML = `
-  <li class="p-2 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer">
+  <li class="p-3 mb-1 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer">
     All Trees
   </li>
 `;
-
 const allTreesLi = allTreesWrapper.querySelector("li");
 allTreesLi.addEventListener("click", () => {
   document.querySelectorAll("#all-categories-con li").forEach((li) =>
@@ -46,10 +46,10 @@ allTreesLi.addEventListener("click", () => {
 
   lodePlantsCategories(); 
 });
-
 allCategoriesCon.append(allTreesWrapper);
 
 // !-------------"All trees"----------------------
+
   categories.forEach((category) => {
     const categoryLi = document.createElement("span");
     categoryLi.innerHTML = `

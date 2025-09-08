@@ -90,7 +90,7 @@ const showPlantsCategories = (plants) => {
     </p>
     <div class="flex justify-between items-center">
       <button class="btn btn-soft btn-success">${plant.category}</button>
-      <p class="font-semibold"> <span>${plant.price}</span> </p>
+      <p class="font-semibold">৳ <span>${plant.price}</span> </p>
     </div>
   </div>
 
@@ -119,12 +119,12 @@ const showPlantsCategories = (plants) => {
         <h2 class="font-semibold text-lg mb-2">${cartItemName}</h2>
         <p class="text-[#1f2937]"><span>${cartItemprice}</span> x 1</p>
       </div>
-      <i class="fa-solid fa-xmark delete-cart-btn"></i>
+      <i class="fa-solid fa-xmark delete-cart-btn hover:text-red-500"></i>
     </div>
   `;
 
       cartItemCon.append(cartCard);
-// *------------Delete cart---------------
+      // *------------Delete cart---------------
       // ✅ Now safely attach delete logic
       const deleteBtn = cartCard.querySelector(".delete-cart-btn");
       deleteBtn.addEventListener("click", () => {
@@ -135,8 +135,10 @@ const showPlantsCategories = (plants) => {
         const updatedTotal = totalPrice - cartItemprice;
         total.innerText = updatedTotal;
 
-        const index = cartItems.findIndex((item) => item.name === plant.name);
-        if (index !== -1) {
+        const item = cartItems.find((item) => 
+          item.name === plant.name);
+        if (item) {
+          const index = cartItems.indexOf(item);
           cartItems.splice(index, 1);
         }
       });
@@ -147,8 +149,6 @@ const showPlantsCategories = (plants) => {
     allPlantCon.append(categoryLi);
   });
 };
-
-
 
 // -----🌴plants by categories-----------------------
 const PlantsbyCategories = (id) => {

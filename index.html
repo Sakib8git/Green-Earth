@@ -35,21 +35,64 @@
   </head>
   <body>
     <!-- note: Headr Part -->
-    <header class="">
-      <div
-        class="md:flex justify-around items-center text-center space-y-4 py-7 bg-[#15803D]"
-      >
-        <h1 class="text-white font-bold text-xl">Green Earth</h1>
-        <div>
+    <header class="bg-[#15803D] text-white">
+      <!-- Mobile Navbar -->
+      <div class="flex justify-between items-center px-4 py-3 md:hidden">
+        <!-- Left: Hamburger dropdown -->
+        <div class="dropdown">
+          <button tabindex="0" class="btn btn-ghost btn-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </button>
           <ul
-            class="flex justify-center gap-5 text-white font-semiboldbold text-base"
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-black rounded-box w-52"
           >
-            <li class="cursor-pointer">About</li>
-            <li class="cursor-pointer">Gallery</li>
-            <li class="cursor-pointer">Plant a Tree</li>
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
           </ul>
         </div>
-        <button class="btn btn-warning text-lg text-[#15803D] rounded-[30px]">
+
+        <!-- Center: Logo -->
+        <h1 class="text-lg font-bold">Green Earth</h1>
+
+        <!-- Right: Button -->
+        <button
+          class="btn btn-warning text-[#15803D] rounded-full text-sm px-4 py-1"
+        >
+          Plant a Tree
+        </button>
+      </div>
+
+      <!-- Desktop Navbar -->
+      <div class="hidden md:flex items-center justify-between px-10 py-5">
+        <!-- Left: Logo -->
+        <h1 class="text-xl font-bold">Green Earth</h1>
+
+        <!-- Center: Navigation Links -->
+        <ul class="flex gap-6 font-semibold text-base">
+          <li class="cursor-pointer">About</li>
+          <li class="cursor-pointer">Gallery</li>
+          <li class="cursor-pointer">Plant a Tree</li>
+        </ul>
+
+        <!-- Right: Button -->
+        <button
+          class="btn btn-warning text-[#15803D] rounded-full text-base px-6 py-2"
+        >
           Plant a Tree
         </button>
       </div>
@@ -119,7 +162,7 @@
             <!-- !card con end  -->
 
             <!-- *cart -->
-            <div class="cart-con col-span-2 border border-blue-500 bg-white">
+            <div class="cart-con col-span-2 bg-white">
               <div class="">
                 <h2 class="text-[20px] font-semibold px-4">Your Cart</h2>
 
@@ -140,7 +183,7 @@
                 </div>
               </div>
               <hr class="mx-4 mt-3" />
-              <div class="flex justify-between items-center mx-4 mt-1 ">
+              <div class="flex justify-between items-center mx-4 mt-1">
                 <p>Total</p>
                 <p>৳<span id="total-price">0</span></p>
               </div>

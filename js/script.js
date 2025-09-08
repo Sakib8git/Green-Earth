@@ -22,6 +22,40 @@ const lodePlantsCategories = () => {
     })
     .catch((err) => {});
 };
+// !-----------lode modal------------
+const lodeModal = (id) => {
+  const modalUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
+  // console.log(modalUrl);
+  fetch(modalUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data.data);
+      const plant = data.plants; // ✅ Corrected
+      // Inject modal content
+      document.querySelector("#my_modal_5 h3").innerText = plant.name;
+      document.querySelector("#my_modal_5 img").src = plant.image;
+      document.querySelector("#my_modal_5 img").alt = plant.name;
+      document.querySelector(
+        "#my_modal_5 p"
+      ).innerText = `Description: ${plant.description}`;
+      document.querySelector(
+        "#my_modal_5 h2"
+      ).innerText = `Category: ${plant.category}`;
+      document.querySelector(
+        "#my_modal_5 .price"
+      ).innerText = `Price: ৳${plant.price}`;
+
+      // ✅ correct path
+      // console.log(modalTitle, modalImg, modalDes, modalCate, modalPrice);
+      // Inject modal content
+
+      // Show modal
+      document.getElementById("my_modal_5").showModal();
+    })
+    .catch((err) => {
+      console.error("Modal load failed:", err);
+    });
+};
 
 // !___________________show case________________________
 
@@ -73,7 +107,8 @@ const showTreeCategories = (categories) => {
 const showPlantsCategories = (plants) => {
   const allPlantCon = document.getElementById("all-plant-con");
   plants.forEach((plant) => {
-    // console.log(plant);
+    // console.log(plant.id);
+
     const categoryLi = document.createElement("div");
     categoryLi.innerHTML = `
     <div class="card bg-white rounded-lg p-4 shadow-md w-full h-[500px] flex flex-col justify-between">
@@ -99,6 +134,35 @@ const showPlantsCategories = (plants) => {
   </button>
 </div>
     `;
+    // fixme:imcge click
+    const imgElement = categoryLi.querySelector("img");
+    imgElement.addEventListener("click", () => {
+      const modalCon = document.getElementById("modal-con");
+      // modalCon.innerHTML = "";
+      const modalItem = document.createElement("div");
+      modalItem.innerHTML = `
+      
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="text-lg font-bold text-center mb-4"></h3>
+            <img src="" alt="" class="h-55 w-full object-cover rounded mb-4" />
+            <p class="py-4 text-justify"></p>
+            <h2 class="font-semibold mb-3"></h2>
+            <p class="price font-semibold mb-4">$</p>
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      
+      `;
+      modalCon.append(modalItem);
+
+      lodeModal(plant.id); // ✅ Now modal opens only when image is clicked
+    });
+
     // *----------add to cart button_______________
     const addToCartBtn = categoryLi.querySelector(".add-to-cart-btn");
 
@@ -135,8 +199,7 @@ const showPlantsCategories = (plants) => {
         const updatedTotal = totalPrice - cartItemprice;
         total.innerText = updatedTotal;
 
-        const item = cartItems.find((item) => 
-          item.name === plant.name);
+        const item = cartItems.find((item) => item.name === plant.name);
         if (item) {
           const index = cartItems.indexOf(item);
           cartItems.splice(index, 1);

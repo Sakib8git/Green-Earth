@@ -31,24 +31,24 @@ const showTreeCategories = (categories) => {
   allCategoriesCon.innerHTML = "";
 
   // *----------"All trees"---------"
-const allTreesWrapper = document.createElement("span");
-allTreesWrapper.innerHTML = `
+  const allTreesWrapper = document.createElement("span");
+  allTreesWrapper.innerHTML = `
   <li class="p-3 mb-1 hover:bg-[#15803D] rounded-lg hover:text-white cursor-pointer">
     All Trees
   </li>
 `;
-const allTreesLi = allTreesWrapper.querySelector("li");
-allTreesLi.addEventListener("click", () => {
-  document.querySelectorAll("#all-categories-con li").forEach((li) =>
-    li.classList.remove("bg-[#15803D]", "text-white")
-  );
-  allTreesLi.classList.add("bg-[#15803D]", "text-white");
+  const allTreesLi = allTreesWrapper.querySelector("li");
+  allTreesLi.addEventListener("click", () => {
+    document
+      .querySelectorAll("#all-categories-con li")
+      .forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
+    allTreesLi.classList.add("bg-[#15803D]", "text-white");
 
-  lodePlantsCategories(); 
-});
-allCategoriesCon.append(allTreesWrapper);
+    lodePlantsCategories();
+  });
+  allCategoriesCon.append(allTreesWrapper);
 
-// !-------------"All trees"----------------------
+  // !-------------"All trees"----------------------
 
   categories.forEach((category) => {
     const categoryLi = document.createElement("span");
@@ -73,7 +73,7 @@ allCategoriesCon.append(allTreesWrapper);
 const showPlantsCategories = (plants) => {
   const allPlantCon = document.getElementById("all-plant-con");
   plants.forEach((plant) => {
-    // console.log(plant.image);
+    // console.log(plant);
     const categoryLi = document.createElement("div");
     categoryLi.innerHTML = `
     <div class="card bg-white rounded-lg p-4 shadow-md w-full h-[500px] flex flex-col justify-between">
@@ -94,17 +94,57 @@ const showPlantsCategories = (plants) => {
     </div>
   </div>
 
-  <button class="btn bg-[#15803D] rounded-3xl mt-4 text-white hover:bg-green-700 transition-all duration-300">
+  <button class="btn bg-[#15803D] rounded-3xl mt-4 text-white hover:bg-green-700 transition-all duration-300 add-to-cart-btn">
     Add to Cart
   </button>
 </div>
     `;
+// !----------add to cart button_______________
+    const addToCartBtn = categoryLi.querySelector(".add-to-cart-btn");
+    addToCartBtn.addEventListener("click", () => {
+      const cartItemName = plant.name;
+      // console.log( cartItemName);
+      const cartItemprice = plant.price;
+      // console.log(cartItemprice);
+
+      const cartItemCon = document.getElementById("cart-item-con");
+      // cartItemCon.innerHTML = "";
+
+      const cartCard = document.createElement("div");
+      cartCard.innerHTML = `
+      <div
+                    class="flex justify-between items-center bg-[#F0FDF4] px-4 py-2 my-2 mx-4 rounded-lg "
+                  >
+                    <div>
+                      <h2 class="font-semibold text-lg mb-2">${cartItemName} </h2>
+                      <p class="text-[#1f2937]">৳<span>${cartItemprice}</span> x 1</p>
+                    </div>
+                    <i class="fa-solid fa-xmark"></i>
+                  </div>
+      
+                  
+      
+      `;
+      cartItemCon.append(cartCard)
+    });
+
     allPlantCon.append(categoryLi);
   });
 };
 
-// ----------------------------
+// -------------cart con---------------
+const cartItems = [];
 
+// const addToCart = (plant) => {
+//   const existingItem = cartItems.find((item) => item.name === plant.name);
+//   if (existingItem) {
+//     existingItem.quantity += 1;
+//   } else {
+//     cartItems.push({ ...plant, quantity: 1 });
+//   }
+
+//   renderCart();
+// };
 // -----------------🌴plants by categories-----------------------
 const PlantsbyCategories = (id) => {
   const allPlantCon = document.getElementById("all-plant-con");

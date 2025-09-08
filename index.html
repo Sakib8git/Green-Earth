@@ -91,7 +91,9 @@
           <h1 class="text-center text-4xl font-semibold mb-10 pt-10">
             Choose Your Trees
           </h1>
-          <div class="choose-tree-con md:grid md:grid-cols-12 h-auto md:h-[1050px] gap-7">
+          <div
+            class="choose-tree-con md:grid md:grid-cols-12 h-auto md:h-[1050px] gap-7"
+          >
             <!-- *note:choose tree body -->
             <div id="" class="category-part md:col-span-2 space-y-4">
               <h2 class="font-semibold text-xl">Categories</h2>
@@ -117,9 +119,30 @@
             <!-- !card con end  -->
 
             <!-- *cart -->
-            <div class="cart-con col-span-2 border border-blue-500">
-              <div class="bg-white">
-                <h2>Your Cart</h2>
+            <div class="cart-con col-span-2 border border-blue-500 bg-white">
+              <div class="">
+                <h2 class="text-[20px] font-semibold px-4">Your Cart</h2>
+
+                <div id="cart-item-con">
+                  <!-- *cart item -->
+
+                  <!-- <div
+                    class="flex justify-between items-center bg-[#F0FDF4] px-4 my-2 mx-4 rounded-lg"
+                  >
+                    <div>
+                      <h2 class="font-semibold text-lg">Mango Tree</h2>
+                      <p class="text-[#1f2937]">৳<span>500</span> x 1</p>
+                    </div>
+                    <i class="fa-solid fa-xmark"></i>
+                  </div> -->
+
+                  <!-- !cart item -->
+                </div>
+              </div>
+              <hr class="mx-4 mt-3" />
+              <div class="flex justify-between items-center mx-4 mt-1 ">
+                <p>Total</p>
+                <p>৳<span id="total-price">0</span></p>
               </div>
             </div>
             <!-- !cart end -->

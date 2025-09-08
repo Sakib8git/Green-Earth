@@ -99,13 +99,20 @@ const showPlantsCategories = (plants) => {
   </button>
 </div>
     `;
-// !----------add to cart button_______________
+    // !----------add to cart button_______________
     const addToCartBtn = categoryLi.querySelector(".add-to-cart-btn");
+
     addToCartBtn.addEventListener("click", () => {
       const cartItemName = plant.name;
       // console.log( cartItemName);
       const cartItemprice = plant.price;
       // console.log(cartItemprice);
+
+      const total = document.getElementById("total-price");
+      const totalPrice = Number(total.innerText);
+      const finalTotal = totalPrice + cartItemprice;
+      total.innerText = finalTotal;
+      // console.log(finalTotal);
 
       const cartItemCon = document.getElementById("cart-item-con");
       // cartItemCon.innerHTML = "";
@@ -125,7 +132,7 @@ const showPlantsCategories = (plants) => {
                   
       
       `;
-      cartItemCon.append(cartCard)
+      cartItemCon.append(cartCard);
     });
 
     allPlantCon.append(categoryLi);

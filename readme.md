@@ -16,8 +16,17 @@
 //   });
 // };
 
+<!-- same card -->
+// const addToCart = (plant) => {
+//   const existingItem = cartItems.find((item) => item.name === plant.name);
+//   if (existingItem) {
+//     existingItem.quantity += 1;
+//   } else {
+//     cartItems.push({ ...plant, quantity: 1 });
+//   }
 
-
+//   renderCart();
+// };
 
 
 

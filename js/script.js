@@ -90,7 +90,7 @@ const showPlantsCategories = (plants) => {
     </p>
     <div class="flex justify-between items-center">
       <button class="btn btn-soft btn-success">${plant.category}</button>
-      <p class="font-semibold">৳${plant.price}</p>
+      <p class="font-semibold"> <span>${plant.price}</span> </p>
     </div>
   </div>
 
@@ -99,60 +99,58 @@ const showPlantsCategories = (plants) => {
   </button>
 </div>
     `;
-    // !----------add to cart button_______________
+    // *----------add to cart button_______________
     const addToCartBtn = categoryLi.querySelector(".add-to-cart-btn");
 
     addToCartBtn.addEventListener("click", () => {
       const cartItemName = plant.name;
-      // console.log( cartItemName);
       const cartItemprice = plant.price;
-      // console.log(cartItemprice);
 
       const total = document.getElementById("total-price");
-      const totalPrice = Number(total.innerText);
+      const totalPrice = parseInt(total.innerText);
       const finalTotal = totalPrice + cartItemprice;
       total.innerText = finalTotal;
-      // console.log(finalTotal);
 
       const cartItemCon = document.getElementById("cart-item-con");
-      // cartItemCon.innerHTML = "";
-
       const cartCard = document.createElement("div");
       cartCard.innerHTML = `
-      <div
-                    class="flex justify-between items-center bg-[#F0FDF4] px-4 py-2 my-2 mx-4 rounded-lg "
-                  >
-                    <div>
-                      <h2 class="font-semibold text-lg mb-2">${cartItemName} </h2>
-                      <p class="text-[#1f2937]">৳<span>${cartItemprice}</span> x 1</p>
-                    </div>
-                    <i class="fa-solid fa-xmark"></i>
-                  </div>
-      
-                  
-      
-      `;
+    <div class="flex justify-between items-center bg-[#F0FDF4] px-4 py-2 my-2 mx-4 rounded-lg">
+      <div>
+        <h2 class="font-semibold text-lg mb-2">${cartItemName}</h2>
+        <p class="text-[#1f2937]"><span>${cartItemprice}</span> x 1</p>
+      </div>
+      <i class="fa-solid fa-xmark delete-cart-btn"></i>
+    </div>
+  `;
+
       cartItemCon.append(cartCard);
+// *------------Delete cart---------------
+      // ✅ Now safely attach delete logic
+      const deleteBtn = cartCard.querySelector(".delete-cart-btn");
+      deleteBtn.addEventListener("click", () => {
+        cartCard.remove();
+
+        const totalText = total.innerText.replace(/[^\d]/g, "");
+        const totalPrice = parseInt(totalText);
+        const updatedTotal = totalPrice - cartItemprice;
+        total.innerText = updatedTotal;
+
+        const index = cartItems.findIndex((item) => item.name === plant.name);
+        if (index !== -1) {
+          cartItems.splice(index, 1);
+        }
+      });
     });
+
+    // !------------Delete cart---------------
 
     allPlantCon.append(categoryLi);
   });
 };
 
-// -------------cart con---------------
-const cartItems = [];
 
-// const addToCart = (plant) => {
-//   const existingItem = cartItems.find((item) => item.name === plant.name);
-//   if (existingItem) {
-//     existingItem.quantity += 1;
-//   } else {
-//     cartItems.push({ ...plant, quantity: 1 });
-//   }
 
-//   renderCart();
-// };
-// -----------------🌴plants by categories-----------------------
+// -----🌴plants by categories-----------------------
 const PlantsbyCategories = (id) => {
   const allPlantCon = document.getElementById("all-plant-con");
   allPlantCon.innerHTML = "";

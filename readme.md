@@ -37,7 +37,7 @@ const { name, age } = person;
 
 5. Explain template literals in ES6. How are they different from string concatenation?
    ES6-এর template literals - নতুনভাবে string লেখার একটা  পদ্ধতি.।
-• Backtick (` `) দিয়ে লেখা হয়।
+• Backtick (`text`) দিয়ে লেখা হয়।
 • ${} দিয়ে ভেতরে ভেরিয়েবল ববসাতে হয়।
 • Multi-line string  লেখা যায়
 

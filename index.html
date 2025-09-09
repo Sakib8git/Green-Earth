@@ -67,7 +67,10 @@
         </div>
 
         <!-- Center: Logo -->
-        <h1 class="text-lg font-bold">Green Earth</h1>
+         
+          
+           <h1 class="text-lg font-bold">Green Earth</h1>
+         
 
         <!-- Right: Button -->
         <button
@@ -78,15 +81,17 @@
       </div>
 
       <!-- Desktop Navbar -->
-      <div class="hidden md:flex items-center justify-between px-10 py-5">
+      <div class="hidden md:flex items-center justify-around px-10 py-5">
         <!-- Left: Logo -->
-        <h1 class="text-xl font-bold">Green Earth</h1>
+ 
+           <h1 class="text-2xl font-bold"><span class="text-3xl">🪴</span>Green Earth</h1>
+         
 
         <!-- Center: Navigation Links -->
         <ul class="flex gap-6 font-semibold text-base">
-          <li class="cursor-pointer">About</li>
-          <li class="cursor-pointer">Gallery</li>
-          <li class="cursor-pointer">Plant a Tree</li>
+          <li class="cursor-pointer hover:text-yellow-400">About</li>
+          <li class="cursor-pointer hover:text-yellow-400">Gallery</li>
+          <li class="cursor-pointer hover:text-yellow-400">Plant a Tree</li>
         </ul>
 
         <!-- Right: Button -->
@@ -131,7 +136,7 @@
         <!--* api choose tree part start -->
 
         <section class="choose-tree-sec md:w-11/12 mx-auto">
-          <h1 class="text-center text-4xl font-semibold mb-10 pt-10">
+          <h1 class="text-center text-4xl font-semibold mb-10 pt-10 md:pt-[100px]">
             Choose Your Trees
           </h1>
           <div
@@ -173,7 +178,6 @@
 
                 <div id="cart-item-con">
                   <!-- *cart item -->
-
                   <!-- <div
                     class="flex justify-between items-center bg-[#F0FDF4] px-4 my-2 mx-4 rounded-lg"
                   >
@@ -183,14 +187,13 @@
                     </div>
                     <i class="fa-solid fa-xmark"></i>
                   </div> -->
-
                   <!-- !cart item -->
                 </div>
               </div>
-              <hr class="mx-4 mt-3" />
+              <hr class="mx-4 mt-3 border-t-3 border-gray-400 rounded-full" />
               <div class="flex justify-between items-center mx-4 mt-1">
-                <p>Total</p>
-                <p>৳<span id="total-price">0</span></p>
+                <p class="font-semibold">Total</p>
+                <p class="font-semibold">৳<span id="total-price">0</span></p>
               </div>
             </div>
             <!-- !cart end -->
@@ -202,7 +205,7 @@
 
         <!--* about part -->
         <section class="about-sec py-15">
-          <h1 class="text-center text-4xl font-semibold mb-10">
+          <h1 class="text-center text-4xl font-semibold mb-10 pt-10 ">
             About the Campaign
           </h1>
           <div
@@ -238,7 +241,7 @@
 
       <!--* impact part -->
       <section class="bg-[#CFF0DC] pb-20">
-        <h1 class="text-center text-4xl font-semibold pt-24 pb-10">
+        <h1 class="text-center text-4xl font-semibold pt-24 pb-10 pt-10 md:pt-[100px]">
           Our Impact
         </h1>
 
@@ -269,7 +272,7 @@
       <!--* form part -->
       <section class="bg-[#166534] pb-24">
         <h1 class="text-center text-4xl font-semibold pt-24 pb-10 text-white">
-          Our Impact
+          Plant a Tree Today
         </h1>
         <div class="hero">
           <div class="card bg-[#15803D] w-full max-w-sm shadow-2xl">
@@ -291,9 +294,9 @@
                   list="browsers"
                 />
                 <datalist id="browsers">
-                  <option value="fol"></option>
-                  <option value="ful"></option>
-                  <option value="kat"></option>
+                  <option value="fol">1</option>
+                  <option value="ful">2</option>
+                  <option value="kat">3</option>
                 </datalist>
 
                 <button
@@ -314,7 +317,7 @@
         class="footer sm:footer-horizontal footer-center bg-[#14532D] text-base-content p-4"
       >
         <aside>
-          <p class="text-white">2025 Green Earth. All Rights Reserved.</p>
+          <p class="text-white">© 2025 Green Earth. All Rights Reserved.</p>
         </aside>
       </footer>
     </section>

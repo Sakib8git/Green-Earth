@@ -12,7 +12,6 @@ const lodeTreeCategories = () => {
 };
 // ----------------------------------------
 const lodePlantsCategories = () => {
-  
   const plantcategoriesUrl = "https://openapi.programming-hero.com/api/plants";
   fetch(plantcategoriesUrl)
     .then((res) => res.json())
@@ -146,11 +145,11 @@ const showPlantsCategories = (plants) => {
       
       <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
           <div class="modal-box">
-            <h3 class="text-lg font-bold text-center mb-4"></h3>
+            <h3 class="text-lg font-bold mb-4"></h3>
             <img src="" alt="" class="h-55 w-full object-cover rounded mb-4" />
-            <p class="py-4 text-justify"></p>
             <h2 class="font-semibold mb-3"></h2>
-            <p class="price font-semibold mb-4">$</p>
+            <p class="py-4 text-justify"></p>
+            <p class="price font-semibold mb-4"></p>
             <div class="modal-action">
               <form method="dialog">
                 <button class="btn">Close</button>
@@ -171,6 +170,7 @@ const showPlantsCategories = (plants) => {
     addToCartBtn.addEventListener("click", () => {
       const cartItemName = plant.name;
       const cartItemprice = plant.price;
+      alert(`${plant.name} has been added to the cart`);
 
       const total = document.getElementById("total-price");
       const totalPrice = parseInt(total.innerText);
@@ -228,7 +228,7 @@ const PlantsbyCategories = (id) => {
       showPlantsCategories(filteredPlants);
     })
     .catch((err) => {
-      alert("Failed to load category:", err)
+      // alert("Failed to load category:", err);
     });
 };
 
@@ -236,7 +236,7 @@ const PlantsbyCategories = (id) => {
 const showLoading = () => {
   const allPlantConLoad = document.getElementById("all-plant-con");
   allPlantConLoad.innerHTML = `
-  <div class="flex justify-center items-center col-span-3 py-20">
+  <div class="flex justify-center place-items-start col-span-3 py-20">
       <span class="loading loading-bars loading-xl text-green-600"></span>
     </div>
   `;

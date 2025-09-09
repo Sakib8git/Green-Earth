@@ -30,11 +30,10 @@ const lodeModal = (id) => {
     .then((res) => res.json())
     .then((data) => {
       // console.log(data.data);
-      const plant = data.plants; // ✅ Corrected
+      const plant = data.plants;
       // Inject modal content
-      document.querySelector("#my_modal_5 h3").innerText = plant.name;
+      document.querySelector("h3").innerText = plant.name;
       document.querySelector("#my_modal_5 img").src = plant.image;
-      document.querySelector("#my_modal_5 img").alt = plant.name;
       document.querySelector(
         "#my_modal_5 p"
       ).innerText = `Description: ${plant.description}`;
@@ -45,11 +44,7 @@ const lodeModal = (id) => {
         "#my_modal_5 .price"
       ).innerText = `Price: ৳${plant.price}`;
 
-      // ✅ correct path
-      // console.log(modalTitle, modalImg, modalDes, modalCate, modalPrice);
-      // Inject modal content
-
-      // Show modal
+      // *Show modal
       document.getElementById("my_modal_5").showModal();
     })
     .catch((err) => {
@@ -161,7 +156,7 @@ const showPlantsCategories = (plants) => {
       `;
       modalCon.append(modalItem);
 
-      lodeModal(plant.id); // ✅ Now modal opens only when image is clicked
+      lodeModal(plant.id);
     });
 
     // *----------add to cart button_______________
@@ -197,10 +192,12 @@ const showPlantsCategories = (plants) => {
 
         const totalText = total.innerText;
         const totalNumberOnly = [...totalText]
-          .filter((cartPriceTotal) => !isNaN(cartPriceTotal) && cartPriceTotal !== " ")
+          .filter(
+            (cartPriceTotal) => !isNaN(cartPriceTotal) && cartPriceTotal !== " "
+          )
           .join("");
         const totalPrice = parseInt(totalNumberOnly);
-        const updatedTotal = totalPrice - cartItemprice; 
+        const updatedTotal = totalPrice - cartItemprice;
         total.innerText = updatedTotal;
 
         const item = cartItems.find((item) => item.name === plant.name);

@@ -153,18 +153,23 @@
             <!-- *note:card con  -->
             <div
               id="all-plant-con"
-              class="all-plant-card-con md:col-span-8 grid md:grid-cols-3 gap-7 overflow-y-scroll"
+              class="all-plant-card-con md:col-span-8 grid md:grid-cols-3 gap-7 overflow-y-scroll relative"
             >
               <!-- "card-1" -->
-
+              <!-- *loding spinner -->
+              <div class="absolute inset-0 flex justify-center z-10">
+                <span class="loading loading-bars loading-xl  text-green-600"></span>
+              </div>
+              <!-- *loding spinner -->
               <!--! "card-1" -->
             </div>
+
             <!-- !card con end  -->
 
             <!-- *cart -->
-            <div class="cart-con col-span-2 bg-white">
+            <div class="cart-con col-span-2 bg-white rounded-lg">
               <div class="">
-                <h2 class="text-[20px] font-semibold px-4">Your Cart</h2>
+                <h2 class="text-[20px] font-semibold px-4 mt-3">Your Cart</h2>
 
                 <div id="cart-item-con">
                   <!-- *cart item -->
@@ -191,13 +196,9 @@
             <!-- !cart end -->
           </div>
         </section>
-<!--! api choose tree part end -->
+        <!--! api choose tree part end -->
 
-        <div id="modal-con">
-          
-        </div>
-        
-        
+        <div id="modal-con"></div>
 
         <!--* about part -->
         <section class="about-sec py-15">

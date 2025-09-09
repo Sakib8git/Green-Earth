@@ -12,6 +12,7 @@ const lodeTreeCategories = () => {
 };
 // ----------------------------------------
 const lodePlantsCategories = () => {
+  
   const plantcategoriesUrl = "https://openapi.programming-hero.com/api/plants";
   fetch(plantcategoriesUrl)
     .then((res) => res.json())
@@ -74,7 +75,7 @@ const showTreeCategories = (categories) => {
   const allTreesLi = allTreesWrapper.querySelector("li");
   allTreesLi.addEventListener("click", () => {
     document
-      .querySelectorAll("#all-categories-con li")
+      .querySelectorAll("li")
       .forEach((li) => li.classList.remove("bg-[#15803D]", "text-white"));
     allTreesLi.classList.add("bg-[#15803D]", "text-white");
 
@@ -106,6 +107,7 @@ const showTreeCategories = (categories) => {
 // *--------------showPlantsCategories-----------------------
 const showPlantsCategories = (plants) => {
   const allPlantCon = document.getElementById("all-plant-con");
+  allPlantCon.innerHTML = "";
   plants.forEach((plant) => {
     // console.log(plant.id);
 
@@ -134,7 +136,7 @@ const showPlantsCategories = (plants) => {
   </button>
 </div>
     `;
-    // fixme:imcge click
+    // fixme:imcge click modal show
     const imgElement = categoryLi.querySelector("img");
     imgElement.addEventListener("click", () => {
       const modalCon = document.getElementById("modal-con");
@@ -215,8 +217,9 @@ const showPlantsCategories = (plants) => {
 
 // -----🌴plants by categories-----------------------
 const PlantsbyCategories = (id) => {
+  showLoading();
   const allPlantCon = document.getElementById("all-plant-con");
-  allPlantCon.innerHTML = "";
+  // allPlantCon.innerHTML = "";
   const plantBycategoriesUrl = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(plantBycategoriesUrl)
     .then((res) => res.json())
@@ -224,7 +227,19 @@ const PlantsbyCategories = (id) => {
       const filteredPlants = data.plants;
       showPlantsCategories(filteredPlants);
     })
-    .catch((err) => {});
+    .catch((err) => {
+      alert("Failed to load category:", err)
+    });
+};
+
+// spinner part
+const showLoading = () => {
+  const allPlantConLoad = document.getElementById("all-plant-con");
+  allPlantConLoad.innerHTML = `
+  <div class="flex justify-center items-center col-span-3 py-20">
+      <span class="loading loading-bars loading-xl text-green-600"></span>
+    </div>
+  `;
 };
 
 lodePlantsCategories();

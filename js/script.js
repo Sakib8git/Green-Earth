@@ -191,14 +191,16 @@ const showPlantsCategories = (plants) => {
 
       cartItemCon.append(cartCard);
       // *------------Delete cart---------------
-      // ✅ Now safely attach delete logic
       const deleteBtn = cartCard.querySelector(".delete-cart-btn");
       deleteBtn.addEventListener("click", () => {
         cartCard.remove();
 
-        const totalText = total.innerText.replace(/[^\d]/g, "");
-        const totalPrice = parseInt(totalText);
-        const updatedTotal = totalPrice - cartItemprice;
+        const totalText = total.innerText;
+        const totalNumberOnly = [...totalText]
+          .filter((cartPriceTotal) => !isNaN(cartPriceTotal) && cartPriceTotal !== " ")
+          .join("");
+        const totalPrice = parseInt(totalNumberOnly);
+        const updatedTotal = totalPrice - cartItemprice; 
         total.innerText = updatedTotal;
 
         const item = cartItems.find((item) => item.name === plant.name);
